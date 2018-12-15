@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+
+  "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+
+  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+		<property name="connection.username">ATS_USER</property>
+		<property name="connection.password">manager</property>
+		<!-- JDBC connection pool, use Hibernate internal connection pool -->
+		<property name="connection.pool_size">5</property>
+		<!-- Defines the SQL dialect used in Hiberante's application -->
+		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+		<!-- Disable the second-level cache <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property> -->
+
+		<!-- Display and format all executed SQL to stdout -->
+
+		<property name="show_sql">true</property>
+
+		<property name="format_sql">true</property>
+
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<!-- <property name="hbm2ddl.auto">create</property> -->
+
+		<mapping class="com.ats.application.crm.CompanyDetails" />
+		<mapping class="com.ats.application.crm.Department" />
+		<mapping class="com.ats.application.crm.GeneralConfiguration" />
+		<mapping class="com.ats.application.crm.GeneralParameters" />
+		<mapping class="com.ats.application.crm.StaffDetails" />
+		<mapping class="com.ats.application.crm.SystemPermission" />
+		<mapping class="com.ats.application.crm.SystemPrincipal" />
+		<mapping class="com.ats.application.crm.SystemResource" />
+		<mapping class="com.ats.application.crm.SystemRole" />
+	</session-factory>
+
+</hibernate-configuration>
